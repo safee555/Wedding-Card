@@ -1,0 +1,1723 @@
+/* ==========================================================
+   STYLE.CSS - PART 1
+   Luxury Islamic Wedding Invitation
+   ========================================================== */
+
+/* -----------------------------
+   Google Fonts
+------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* -----------------------------
+   CSS Variables
+------------------------------*/
+:root{
+
+    --gold:#d4af37;
+    --gold-light:#f5d76e;
+    --gold-dark:#8d6b08;
+
+    --black:#050505;
+    --dark:#111111;
+    --card:#171717;
+
+    --white:#ffffff;
+    --gray:#cccccc;
+
+    --shadow:
+        0 15px 45px rgba(0,0,0,.55);
+
+    --radius:18px;
+
+}
+
+/* -----------------------------
+   Reset
+------------------------------*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#000;
+    color:white;
+    overflow-x:hidden;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+/* -----------------------------
+   Selection
+------------------------------*/
+
+::selection{
+
+    background:var(--gold);
+    color:black;
+
+}
+
+/* -----------------------------
+   Scrollbar
+------------------------------*/
+
+::-webkit-scrollbar{
+
+    width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#000;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+        var(--gold),
+        var(--gold-dark)
+    );
+
+    border-radius:20px;
+
+}
+
+/* -----------------------------
+   Animated Background
+------------------------------*/
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at top left,
+    rgba(212,175,55,.12),
+    transparent 40%),
+
+    radial-gradient(circle at bottom right,
+    rgba(212,175,55,.08),
+    transparent 40%),
+
+    #000;
+
+    z-index:-5;
+
+}
+
+/* -----------------------------
+   Stars
+------------------------------*/
+
+.stars{
+
+    position:fixed;
+
+    width:100%;
+    height:100%;
+
+    left:0;
+    top:0;
+
+    z-index:-3;
+
+    background-image:
+
+    radial-gradient(var(--gold) 1px,transparent 1px),
+    radial-gradient(#fff 1px,transparent 1px);
+
+    background-size:
+    90px 90px,
+    160px 160px;
+
+    animation:moveStars 70s linear infinite;
+
+    opacity:.35;
+
+}
+
+@keyframes moveStars{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-800px);
+
+    }
+
+}
+
+/* -----------------------------
+   Moon
+------------------------------*/
+
+.moon{
+
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    position:fixed;
+
+    right:80px;
+    top:60px;
+
+    background:
+
+    radial-gradient(circle,
+    #fff7d0,
+    #f6dc80,
+    #d4af37);
+
+    box-shadow:
+
+    0 0 40px rgba(255,220,120,.7),
+
+    0 0 90px rgba(212,175,55,.35);
+
+    z-index:-2;
+
+}
+
+.moon::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:125px;
+    height:125px;
+
+    border-radius:50%;
+
+    background:black;
+
+    left:35px;
+    top:-8px;
+
+}
+
+/* -----------------------------
+   Decorative Side Patterns
+------------------------------*/
+
+.left-pattern,
+.right-pattern{
+
+    position:fixed;
+
+    width:180px;
+    height:100%;
+
+    top:0;
+
+    opacity:.08;
+
+    background:
+
+    repeating-linear-gradient(
+
+    45deg,
+
+    transparent,
+
+    transparent 8px,
+
+    var(--gold) 8px,
+
+    var(--gold) 10px
+
+    );
+
+    pointer-events:none;
+
+}
+
+.left-pattern{
+
+    left:0;
+
+}
+
+.right-pattern{
+
+    right:0;
+
+    transform:rotateY(180deg);
+
+}
+
+/* -----------------------------
+   Pages
+------------------------------*/
+
+.page{
+
+    min-height:100vh;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px;
+
+}
+
+.page.active{
+
+    display:flex;
+
+}
+
+/* -----------------------------
+   Overlay
+------------------------------*/
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    rgba(0,0,0,.45);
+
+}
+
+/* -----------------------------
+   Welcome Card
+------------------------------*/
+
+.welcome-card{
+
+    position:relative;
+
+    width:900px;
+
+    max-width:95%;
+
+    background:
+
+    rgba(20,20,20,.85);
+
+    backdrop-filter:blur(14px);
+
+    border:
+
+    2px solid rgba(212,175,55,.35);
+
+    border-radius:25px;
+
+    padding:70px;
+
+    text-align:center;
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.6);
+
+    animation:fadeUp 1.3s ease;
+
+}
+
+/* -----------------------------
+   Arabic
+------------------------------*/
+
+.arabic{
+
+    font-size:72px;
+
+    color:var(--gold);
+
+    margin-bottom:20px;
+
+    text-shadow:
+
+    0 0 15px rgba(212,175,55,.6);
+
+}
+
+/* -----------------------------
+   Heading
+------------------------------*/
+
+.welcome-card h1{
+
+    font-family:'Cinzel',serif;
+
+    font-size:54px;
+
+    color:var(--gold-light);
+
+    margin-top:20px;
+
+    letter-spacing:2px;
+
+}
+
+.blessing{
+
+    color:#dddddd;
+
+    font-weight:300;
+
+    line-height:1.9;
+
+    font-size:18px;
+
+}
+
+.divider{
+
+    width:220px;
+
+    height:2px;
+
+    margin:35px auto;
+
+    background:
+
+    linear-gradient(
+    to right,
+    transparent,
+    var(--gold),
+    transparent);
+
+}
+
+.welcome-text{
+
+    margin-top:25px;
+
+    font-size:18px;
+
+    color:#e4e4e4;
+
+    line-height:2;
+
+}
+
+/* -----------------------------
+   Couple Names
+------------------------------*/
+
+.couple{
+
+    margin-top:40px;
+
+}
+
+.groom,
+.bride{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:72px;
+
+    color:var(--gold);
+
+    font-weight:normal;
+
+}
+
+/* ==========================================
+   Golden Diamond Ring
+========================================== */
+
+.ring-icon{
+
+    font-size:48px;
+
+    margin:20px 0;
+
+    display:inline-block;
+
+    filter:
+
+        drop-shadow(0 0 10px rgba(255,215,0,.6))
+        drop-shadow(0 0 25px rgba(255,215,0,.4));
+
+    animation:ringFloat 5s ease-in-out infinite;
+
+}
+
+@keyframes ringFloat{
+
+    0%{
+
+        transform:
+            translateY(0px)
+            rotate(-5deg);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(-10px)
+            rotate(5deg)
+            scale(1.08);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(0px)
+            rotate(-5deg);
+
+    }
+
+}
+
+/* ==========================================================
+   STYLE.CSS - PART 2
+   Welcome Section Continued
+   Invitation Card Layout
+   ==========================================================*/
+
+/* -----------------------------
+   Quran Verse
+------------------------------*/
+
+.dua{
+
+    margin-top:40px;
+
+    color:#dddddd;
+
+    font-size:18px;
+
+    line-height:2;
+
+    font-style:italic;
+
+}
+
+.quran{
+
+    margin-top:12px;
+
+    color:var(--gold);
+
+    font-size:17px;
+
+    letter-spacing:1px;
+
+}
+
+/* -----------------------------
+   Open Invitation Button
+------------------------------*/
+
+#welcomePage button{
+
+    margin-top:45px;
+
+    padding:18px 55px;
+
+    background:linear-gradient(
+        135deg,
+        var(--gold-light),
+        var(--gold),
+        var(--gold-dark)
+    );
+
+    color:#111;
+
+    border:none;
+
+    border-radius:60px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    letter-spacing:1px;
+
+    box-shadow:
+        0 0 25px rgba(212,175,55,.35);
+
+}
+
+#welcomePage button:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 12px 35px rgba(212,175,55,.45);
+
+}
+
+/* -----------------------------
+   Invitation Page
+------------------------------*/
+
+#invitationPage{
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:80px 20px;
+
+}
+
+/* -----------------------------
+   Main Invitation Card
+------------------------------*/
+
+.card{
+
+    width:1100px;
+
+    max-width:100%;
+
+    background:rgba(18,18,18,.92);
+
+    border:2px solid rgba(212,175,55,.35);
+
+    border-radius:30px;
+
+    padding:70px;
+
+    box-shadow:
+
+        0 30px 70px rgba(0,0,0,.6);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* Golden Border Glow */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:12px;
+
+    border:1px solid rgba(212,175,55,.20);
+
+    border-radius:22px;
+
+    pointer-events:none;
+
+}
+
+.card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    background:radial-gradient(
+
+        rgba(212,175,55,.18),
+
+        transparent 70%
+
+    );
+
+    top:-150px;
+
+    right:-120px;
+
+    border-radius:50%;
+
+}
+
+/* -----------------------------
+   Header
+------------------------------*/
+
+header{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.arabic-large{
+
+    font-size:90px;
+
+    color:var(--gold);
+
+    margin-bottom:15px;
+
+    text-shadow:
+
+        0 0 18px rgba(212,175,55,.5);
+
+}
+
+header h1{
+
+    font-family:'Cinzel',serif;
+
+    font-size:48px;
+
+    color:var(--gold-light);
+
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+
+}
+
+header p{
+
+    color:#ddd;
+
+    font-size:18px;
+
+    line-height:2;
+
+    max-width:750px;
+
+    margin:auto;
+
+}
+
+/* -----------------------------
+   Couple Section
+------------------------------*/
+
+.couple-section{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+
+    margin:70px 0;
+
+    flex-wrap:wrap;
+    
+
+}
+
+.person{
+
+    flex:1;
+
+    text-align:center;
+
+    padding:10px;
+
+}
+
+.person h3{
+
+    color:var(--gold);
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    margin-bottom:18px;
+
+}
+
+.person h2{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:60px;
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+.person p{
+
+    color:#bdbdbd;
+
+    margin-bottom:10px;
+
+}
+
+.person h4{
+
+    color:var(--gold-light);
+
+    font-weight:400;
+
+}
+
+.ring{
+
+    font-size:55px;
+
+    color:var(--gold);
+
+    animation:pulse 2s infinite;
+
+}
+
+/* -----------------------------
+   Event Boxes
+------------------------------*/
+
+.events{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+    margin-top:60px;
+
+}
+
+.event-box{
+
+    background:#111;
+
+    border:1px solid rgba(212,175,55,.25);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    transition:.4s;
+
+    position:relative;
+
+}
+
+.event-box:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--gold);
+
+    box-shadow:
+
+        0 15px 35px rgba(212,175,55,.12);
+
+}
+
+.event-box h2{
+
+    text-align:center;
+
+    color:var(--gold-light);
+
+    margin-bottom:18px;
+
+    font-family:'Cinzel',serif;
+
+}
+
+.line{
+
+    width:100px;
+
+    height:2px;
+
+    background:var(--gold);
+
+    margin:20px auto;
+
+}
+
+.event-box p{
+
+    text-align:center;
+
+    color:#ddd;
+
+    line-height:2;
+
+    font-size:17px;
+
+}
+
+/* -----------------------------
+   Countdown
+------------------------------*/
+
+.countdown{
+
+    margin-top:80px;
+
+    text-align:center;
+
+}
+
+.countdown h2{
+
+    color:var(--gold);
+
+    margin-bottom:35px;
+
+    font-size:36px;
+
+    font-family:'Cinzel',serif;
+
+}
+
+#timer{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+}
+
+#timer div{
+
+    width:150px;
+
+    background:#111;
+
+    border:1px solid rgba(212,175,55,.25);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    transition:.4s;
+
+}
+
+#timer div:hover{
+
+    transform:translateY(-6px);
+
+    border-color:var(--gold);
+
+}
+
+#timer span{
+
+    display:block;
+
+    font-size:48px;
+
+    color:var(--gold);
+
+    font-weight:bold;
+
+}
+
+#timer label{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:#ddd;
+
+    letter-spacing:2px;
+
+}
+
+/* -----------------------------
+   Venue
+------------------------------*/
+
+.venue{
+
+    margin-top:80px;
+
+    text-align:center;
+
+}
+
+.venue h2{
+
+    color:var(--gold);
+
+    font-size:34px;
+
+    margin-bottom:20px;
+
+}
+
+.venue p{
+
+    color:#ddd;
+
+    font-size:18px;
+
+    line-height:2;
+
+}
+
+.venue a{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    text-decoration:none;
+
+    color:#111;
+
+    background:var(--gold);
+
+    padding:15px 40px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    transition:.4s;
+
+}
+
+.venue a:hover{
+
+    transform:translateY(-5px);
+
+    background:var(--gold-light);
+
+}
+
+/* ==========================================================
+   STYLE.CSS - PART 3
+   Schedule • Gallery • Footer • Animations
+   ==========================================================*/
+
+/* -----------------------------
+   Wedding Schedule
+------------------------------*/
+
+.schedule{
+
+    margin-top:90px;
+
+    text-align:center;
+
+}
+
+.schedule h2{
+
+    font-family:'Cinzel',serif;
+
+    font-size:36px;
+
+    color:var(--gold);
+
+    margin-bottom:35px;
+
+}
+
+.schedule table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    background:#111;
+
+    border:1px solid rgba(212,175,55,.25);
+
+}
+
+.schedule tr{
+
+    transition:.35s;
+
+}
+
+.schedule tr:hover{
+
+    background:rgba(212,175,55,.08);
+
+}
+
+.schedule td{
+
+    padding:22px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+    color:#e4e4e4;
+
+    font-size:17px;
+
+}
+
+.schedule td:first-child{
+
+    font-weight:600;
+
+    color:var(--gold-light);
+
+}
+
+.schedule tr:last-child td{
+
+    border-bottom:none;
+
+}
+
+
+/* -----------------------------
+   Dua Box
+------------------------------*/
+
+.dua-box{
+
+    margin-top:90px;
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    rgba(212,175,55,.08),
+
+    rgba(255,255,255,.02)
+
+    );
+
+    border:1px solid rgba(212,175,55,.25);
+
+    border-radius:22px;
+
+    padding:45px;
+
+    text-align:center;
+
+}
+
+.dua-box p{
+
+    font-size:22px;
+
+    line-height:2;
+
+    color:#f1f1f1;
+
+    font-style:italic;
+
+}
+
+/* -----------------------------
+   Footer
+------------------------------*/
+
+footer{
+
+    margin-top:90px;
+
+    text-align:center;
+
+}
+
+footer h2{
+
+    color:var(--gold);
+
+    font-size:38px;
+
+    margin-bottom:18px;
+
+    font-family:'Cinzel',serif;
+
+}
+
+footer p{
+
+    color:#d6d6d6;
+
+    line-height:2;
+
+    font-size:18px;
+
+}
+
+.footer-divider{
+
+    width:220px;
+
+    height:2px;
+
+    margin:30px auto;
+
+    background:
+
+    linear-gradient(
+
+    to right,
+
+    transparent,
+
+    var(--gold),
+
+    transparent
+
+    );
+
+}
+
+footer h3{
+
+    margin-top:18px;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:58px;
+
+    color:var(--gold-light);
+
+}
+
+/* -----------------------------
+   Decorative Corners
+------------------------------*/
+
+.card .corner{
+
+    position:absolute;
+
+    width:70px;
+
+    height:70px;
+
+    border-color:var(--gold);
+
+    opacity:.65;
+
+}
+
+.corner.top-left{
+
+    top:25px;
+
+    left:25px;
+
+    border-top:3px solid;
+
+    border-left:3px solid;
+
+}
+
+.corner.top-right{
+
+    top:25px;
+
+    right:25px;
+
+    border-top:3px solid;
+
+    border-right:3px solid;
+
+}
+
+.corner.bottom-left{
+
+    left:25px;
+
+    bottom:25px;
+
+    border-left:3px solid;
+
+    border-bottom:3px solid;
+
+}
+
+.corner.bottom-right{
+
+    right:25px;
+
+    bottom:25px;
+
+    border-right:3px solid;
+
+    border-bottom:3px solid;
+
+}
+
+/* -----------------------------
+   Fade Animation
+------------------------------*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        translateY(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translateY(0);
+
+    }
+
+}
+
+.fade-up{
+
+    animation:
+
+    fadeUp 1.1s ease;
+
+}
+
+/* -----------------------------
+   Zoom Animation
+------------------------------*/
+
+@keyframes zoomIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.8);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+.zoom{
+
+    animation:
+
+    zoomIn 1s ease;
+
+}
+
+/* -----------------------------
+   Floating
+------------------------------*/
+
+@keyframes floating{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.moon{
+
+    animation:
+
+    floating 6s ease-in-out infinite;
+
+}
+
+/* -----------------------------
+   Golden Glow
+------------------------------*/
+
+.glow{
+
+    animation:
+
+    glow 3s infinite alternate;
+
+}
+
+@keyframes glow{
+
+    from{
+
+        box-shadow:
+
+        0 0 15px rgba(212,175,55,.2);
+
+    }
+
+    to{
+
+        box-shadow:
+
+        0 0 40px rgba(212,175,55,.55);
+
+    }
+
+}
+
+/* -----------------------------
+   Responsive
+------------------------------*/
+
+@media(max-width:992px){
+
+.card{
+
+    padding:50px 35px;
+
+}
+
+header h1{
+
+    font-size:38px;
+
+}
+
+.person h2{
+
+    font-size:50px;
+
+}
+
+footer h3{
+
+    font-size:48px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.page{
+
+    padding:25px;
+
+}
+
+.welcome-card{
+
+    padding:40px 25px;
+
+}
+
+.welcome-card h1{
+
+    font-size:36px;
+
+}
+
+.arabic{
+
+    font-size:56px;
+
+}
+
+.groom,
+.bride{
+
+    font-size:54px;
+
+}
+
+.couple-section{
+
+    flex-direction:column;
+    
+    gap:20px;
+
+    margin:30px 0;
+
+}
+
+.ring{
+    font-size:42px;
+    margin:5px 0;
+
+}
+
+#timer{
+
+    gap:15px;
+
+}
+
+#timer div{
+
+    width:120px;
+
+}
+
+#timer span{
+
+    font-size:36px;
+
+}
+
+.schedule td{
+
+    padding:15px;
+
+    font-size:15px;
+
+}
+
+footer h3{
+
+    font-size:42px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+header h1{
+
+    font-size:30px;
+
+}
+
+.person h2{
+
+    font-size:38px;
+    line-height:1.2;
+
+}
+
+.gallery-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.photo{
+
+    height:220px;
+
+}
+
+#welcomePage button{
+
+    width:100%;
+
+}
+
+.venue a{
+
+    width:100%;
+
+}
+
+footer h2{
+
+    font-size:28px;
+
+}
+
+footer h3{
+
+    font-size:34px;
+
+}
+
+}
+
+
+/* ==========================================
+   Luxury Gold Dust
+========================================== */
+
+.particles{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+.particles span{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:#FFD54A;
+
+    box-shadow:
+
+        0 0 4px #FFD54A,
+
+        0 0 10px rgba(255,215,0,.8);
+
+    animation:goldDust linear infinite;
+
+}
+
+/* Floating Animation */
+
+@keyframes goldDust{
+
+    0%{
+
+        transform:
+
+            translateY(20px)
+            translateX(0px);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:.4;
+
+    }
+
+    30%{
+
+        opacity:.8;
+
+    }
+
+    60%{
+
+        transform:
+
+            translateY(-40vh)
+            translateX(8px);
+
+    }
+
+    100%{
+
+        transform:
+
+            translateY(-110vh)
+            translateX(-12px);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ==========================================
+   Mobile Responsive
+========================================== */
+
+@media (max-width:768px){
+
+    #timer{
+
+        display:flex;
+
+        justify-content:space-between;
+
+        flex-wrap:nowrap;
+
+        gap:8px;
+
+    }
+
+    #timer div{
+
+        width:23%;
+
+        padding:15px 5px;
+
+        border-radius:12px;
+
+    }
+
+    #timer span{
+
+        font-size:32px;
+
+    }
+
+    #timer label{
+
+        font-size:12px;
+
+        letter-spacing:1px;
+
+    }
+
+}
